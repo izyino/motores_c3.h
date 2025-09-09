@@ -51,7 +51,9 @@ time – variável uint32_t contendo o tempo em milisegundos que o motor DC fica
 
 velDC – variável unint8_t que define a velocidade da movimentação, em termos de  porcentagem entre 0 e 100. Sendo 0=0% motor parado, 100=100% motor com velocidade máxima
 
-cwDC – variável booleana que define o sentido da movimentação, sendo “true” para sentido horário e “false” para sentido anti-horário 
+cwDC – variável booleana que define o sentido da movimentação, sendo “true” para sentido horário e “false” para sentido anti-horário
+
+Para saber se o motor DC n (n=0 ou 1) ainda esta girando ou já esta parado, consultar a variável interna da biblioteca chamada xtime[n]. Se xtime[n]=0 o motor já esta parado. Se xtime[n] diferente de zero, o motor ainda  esta rodando 
 
 --------------------------------------------------------------------------------------------------------
 x.beep(bnum, bdur, bfreq, binter);
@@ -142,6 +144,9 @@ x.stopStep();
 x.runDC(0, 15000, 75, false);
 //o motor começa a se movimentar imediatamente após a função runDC ser executada
 
+//para saber se o motor DC nº0 ainda está girando ou já esta parado, fazer
+Se (x.xtime[0]>0) ainda está girando. Se (x.xtime[0]=0) o motor já esta parado
+
 //a qualquer momento o movimento do motor DC n.3 pode ser interrompido
 x.stopDC(0);
 
@@ -177,3 +182,4 @@ while (x.getms()>0){enquanto espera 4s, pode fazer coisas…}
 //a variável x.xms começa a ser decrementada a cada um milisegundo imediatamente após ter sido inicializada pela função setms
 
 ############################################################################################
+
