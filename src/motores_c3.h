@@ -64,7 +64,7 @@ class motores_c3 {
 
   //variaveis de controle dos step motors
   uint16_t passos[5]={ 0, 2048, 2048, 4096, 200};
-  int      ajuste[5]={ 0,   28,   28,   28, 0};
+  int      ajuste[5]={ 0,   28,   28,   28,   0};
 
   //pinos associados aos motores DC (1s, 2s, enable)
   uint8_t pinosdc[2][3]={ {0,1,20}, {2,3,21} };
@@ -88,3 +88,4 @@ inline motores_c3::isrFunct motores_c3::getIsr<0>(uint8_t timerNumber) {
 }
 
 #endif
+
