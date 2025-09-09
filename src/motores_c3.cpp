@@ -37,7 +37,7 @@ void  motores_c3::begin() {
 //----------------------------------------------------------------------
 void  motores_c3::runStep(uint32_t steps, uint8_t velstep, boolean cwstep)
 {
-  xvelstep=600000L/passos[xtipostep-1]/velstep;
+  xvelstep=600000L/passos[xtipostep]/velstep;
   xvelnow=xvelstep;
   xcwstep=!cwstep;
   if (xcwstep){xfase=-1;}
@@ -272,5 +272,6 @@ void  motores_c3::writ(uint8_t px1, uint8_t px2, uint8_t px3, uint8_t px4)
   digitalWrite(0, px1);digitalWrite(1, px2);digitalWrite(2, px3);digitalWrite(3, px4);
 }
 //----------------------------------------------------------------------
+
 
 
