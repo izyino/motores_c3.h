@@ -65,9 +65,16 @@ void  motores_c3::runDC(uint8_t n, uint32_t time, uint8_t veldc, boolean cwdc)
 
 
 //----------------------------------------------------------------------
-uint32_t  motores_c3::where()
+uint32_t  motores_c3::stepstogo()
 {
   return xsteps;
+}
+
+
+//----------------------------------------------------------------------
+uint32_t  motores_c3::timetogo(uint8_t n)
+{
+  return xtime[n]/10;
 }
 
 
@@ -272,6 +279,7 @@ void  motores_c3::writ(uint8_t px1, uint8_t px2, uint8_t px3, uint8_t px4)
   digitalWrite(0, px1);digitalWrite(1, px2);digitalWrite(2, px3);digitalWrite(3, px4);
 }
 //----------------------------------------------------------------------
+
 
 
 
