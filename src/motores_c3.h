@@ -20,7 +20,8 @@ class motores_c3 {
   void stopLed();
 
   uint32_t getms();
-  uint32_t where();
+  uint32_t stepstogo();
+  uint32_t timetogo(uint8_t n);
 
   volatile int bdur=0, binter=0, bfreq=0, bnum=0;
   volatile int ldur=0, linter=0, lnum=0;
@@ -88,4 +89,5 @@ inline motores_c3::isrFunct motores_c3::getIsr<0>(uint8_t timerNumber) {
 }
 
 #endif
+
 
