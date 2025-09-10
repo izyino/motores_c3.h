@@ -28,16 +28,16 @@ void loop() {
   if (x.xtipostep==0){                    //se há motor(es) DC conectado(s)
     x.beep(2, 200, 2000, 100);            //emite 2 beep de 200ms cada, 2000Hz, intervalo entre eles de 100ms 
     x.led(20, 100, 50);                   //pisca o LED 20 vezes com 100ms aceso e 50ms apagado
-    if (x.xtime[0]==0){                   //se o motor DC n.0 estiver parado
+    if (x.timetogo(0)==0){                //se o motor DC n.0 estiver parado
       x.runDC(0, 2500, 100, 1);           //ativa motor DC 0 por 2,5s, vel 100%
     }                                     //
-    if (x.xtime[1]==0){                   //se o motor DC n.1 estiver parado
+    if (x.timetogo(1)==0){                //se o motor DC n.1 estiver parado
       x.runDC(1, 5000, 75, 0);            //ativa motor DC 1 por 5s, vel 50%
     }                                     //
   }  
 
   if (x.xtipostep!=0){                    //se há motor de passo conectado
-    if (x.where()==0){                    //e se o motor de passo já chegou ao seu último destino (está parado)
+    if (x.stepstogo()==0){                //e se o motor de passo já chegou ao seu último destino (está parado)
       x.beep(2, 200, 2000, 100);          //emite 2 beep de 200ms cada, 2000Hz, intervalo entre eles de 100ms 
       x.led(20, 100, 50);                 //pisca o LED 20 vezes com 100ms aceso e 50ms apagado
       sent=!sent;                         //inverte o sentido, voltas entre 1 e 10
@@ -49,3 +49,4 @@ void loop() {
   x.setms(1000);
   while(x.getms()>0){}                    //apenas exemplo de espera não blocante (1 segundos)
 }
+
