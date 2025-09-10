@@ -53,7 +53,6 @@ velDC – variável unint8_t que define a velocidade da movimentação, em termo
 
 cwDC – variável booleana que define o sentido da movimentação, sendo “true” para sentido horário e “false” para sentido anti-horário
 
-Para saber se o motor DC n (n=0 ou 1) ainda esta girando ou já esta parado, consultar a variável interna da biblioteca chamada xtime[n]. Se xtime[n]=0 o motor já esta parado. Se xtime[n] diferente de zero, o motor ainda  esta rodando 
 
 --------------------------------------------------------------------------------------------------------
 x.timetogo(n);
@@ -187,5 +186,6 @@ while (x.getms()>0){enquanto espera 4s, pode fazer coisas…}<br>
 //a variável x.xms começa a ser decrementada a cada um milisegundo imediatamente após ter sido inicializada pela função setms<br>
 
 ############################################################################################<br>
+
 
 
