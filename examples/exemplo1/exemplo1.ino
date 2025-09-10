@@ -1,4 +1,4 @@
-
+a-17
 //
 // Exemplo n.1 de utilização da biblioteca motores_c3.h
 // emite beeps e piscadas de led, e movimentos repetitivos
@@ -49,5 +49,6 @@ void loop() {
   x.setms(1000);
   while(x.getms()>0){}                    //apenas exemplo de espera não blocante (1 segundos)
 }
+
 
 
