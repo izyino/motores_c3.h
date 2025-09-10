@@ -2,7 +2,8 @@ motores_c3  KEYWORD1
 begin       KEYWORD2
 runStep     KEYWORD2
 runDC       KEYWORD2
-where       KEYWORD2
+stepstogo   KEYWORD2
+timetogo    KEYWORD2
 beep        KEYWORD2
 led         KEYWORD2
 setms       KEYWORD2
