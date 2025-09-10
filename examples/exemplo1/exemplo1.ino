@@ -1,9 +1,9 @@
-a-17
+
 //
 // Exemplo n.1 de utilização da biblioteca motores_c3.h
 // emite beeps e piscadas de led, e movimentos repetitivos
 // -----------------------------------------------------------
-// Pressupõe um motor de passo 28byj48 (poderia ser o Nema-17)
+// Pressupõe um motor de passo Nema-17 (poderia ser o 28BYJ48)
 // ou até dois motores DC (n.0 nos pinos 1 e 2 de CN1
 // e n.1 nos pinos 3 e 4 de CN1) 
 // -----------------------------------------------------------
@@ -49,6 +49,7 @@ void loop() {
   x.setms(1000);
   while(x.getms()>0){}                    //apenas exemplo de espera não blocante (1 segundos)
 }
+
 
 
 
