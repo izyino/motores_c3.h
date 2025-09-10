@@ -34,7 +34,7 @@ velstep – variável unint8_t que define a velocidade da movimentação, em RPM
 cwstep – variável booleana que define o sentido da movimentação, sendo “true” para sentido horário e “false” para sentido anti-horário 
 
 --------------------------------------------------------------------------------------------------------
-x.where();
+x.stepstogo();
 
 esta função retorna no formato uint32_t o número de passos ainda restantes para que o motor chegue ao seu destino. Zero significa que o motor n já chegou ao seu último destino e já encontra-se parado. Antes de comandar qualquer movimentação deve-se consultar esta função para ter certeza que o motor n encontra-se parado. A variável n é do tipo uint8_t
 
@@ -53,7 +53,10 @@ velDC – variável unint8_t que define a velocidade da movimentação, em termo
 
 cwDC – variável booleana que define o sentido da movimentação, sendo “true” para sentido horário e “false” para sentido anti-horário
 
-Para saber se o motor DC n (n=0 ou 1) ainda esta girando ou já esta parado, consultar a variável interna da biblioteca chamada xtime[n]. Se xtime[n]=0 o motor já esta parado. Se xtime[n] diferente de zero, o motor ainda  esta rodando 
+--------------------------------------------------------------------------------------------------------
+x.timetogo(n);
+
+esta função retorna no formato uint32_t, em milisegundos, o tempo ainda restante para que o motor DC n complete o último comando runDC. Se retornar zero significa que o motor DC n já está parado. Antes de comandar qualquer movimentação do motor DC n deve-se consultar esta função para ter certeza que o mesmo se encontra parado
 
 --------------------------------------------------------------------------------------------------------
 x.beep(bnum, bdur, bfreq, binter);
@@ -130,7 +133,7 @@ x.runStep(2048, 3, true);
 //o motor começa a se movimentar imediatamente após a função runStep ser executada
 
 //para saber se o motor de passo já chegou ao destino, fazer
-if (x.where()>0) {ainda não chegou ao destino. Está em movimento...};
+if (x.stepstogo()>0) {ainda não chegou ao destino. Está em movimento...};
 
 //a qualquer momento o movimento do motor de passo n.0 pode ser interrompido
 x.stopStep();
@@ -145,7 +148,7 @@ x.runDC(0, 15000, 75, false);
 //o motor começa a se movimentar imediatamente após a função runDC ser executada
 
 //para saber se o motor DC nº0 ainda está girando ou já esta parado, fazer
-Se (x.xtime[0]>0) ainda está girando. Se (x.xtime[0]=0) o motor já esta parado
+if (x.timetogo(0)>0) {ainda não terminou o último comando runDC. Está em movimento...};
 
 //a qualquer momento o movimento do motor DC n.3 pode ser interrompido
 x.stopDC(0);
@@ -182,4 +185,5 @@ while (x.getms()>0){enquanto espera 4s, pode fazer coisas…}
 //a variável x.xms começa a ser decrementada a cada um milisegundo imediatamente após ter sido inicializada pela função setms
 
 ############################################################################################
+
 
