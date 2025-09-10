@@ -11,9 +11,9 @@
 
 
 #include <motores_c3.h>
-
-motores_c3 x(4);                         //0 indica motor(es) DC em CN1 
-                                         //1,2,3 ou 4=indica motor de passo em CN1
+                                         //0 indica motor(es) DC em CN1
+motores_c3 x(4);                         //1,2,3 indica motor de passo 28BYJ48 em CN1 
+                                         //4 indica motor de passo Nema-17 em CN1 
 
 bool sent=false;
 uint32_t voltas;
@@ -49,4 +49,5 @@ void loop() {
   x.setms(1000);
   while(x.getms()>0){}                    //apenas exemplo de espera não blocante (1 segundos)
 }
+
 
